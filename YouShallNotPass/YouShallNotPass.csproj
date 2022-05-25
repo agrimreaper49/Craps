@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="Spinner">
+      <HintPath>..\..\Spinner\SpinnerUser\bin\Debug\net5.0-windows\Spinner.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

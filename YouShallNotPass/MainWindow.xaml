@@ -1,0 +1,55 @@
+﻿<Window x:Class="YouShallNotPass.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:YouShallNotPass"
+        xmlns:spinner="clr-namespace:Spinner;assembly=Spinner"
+        mc:Ignorable="d"
+        Title="You Shall Not Pass!" Height="600" Width="800">
+    <Grid Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="85"/>
+            <ColumnDefinition Width="85"/>
+            <ColumnDefinition Width="140"/>
+            <ColumnDefinition Width="85"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="30"/>
+
+        </Grid.ColumnDefinitions>
+        <Label Name="Stake" Grid.Row="0" Grid.Column="0" Content="Stake" FontSize="12"/>
+        <Grid Name="StakeGrid" Grid.Row="1" Grid.Column="0">
+            <spinner:SpinnerControl Name="Stakes" ControlHeight="30" ControlWidth="65" Increment="1" MaxValue="100000" MinValue ="0" DefaultValue ="20" />
+        </Grid>
+        <Label Name="BetAmount" Grid.Row="2" Grid.Column="0" Content="Bet Amount" FontSize="12"/>
+        <Grid Name="BetGrid" Grid.Row="3" Grid.Column="0">
+            <spinner:SpinnerControl Name="Bets" ControlHeight="30" ControlWidth="65" Increment="1" MaxValue="100000" MinValue ="0" DefaultValue ="3" />
+        </Grid>
+        <Label Name="Profit" Grid.Row="4" Grid.Column="0" Content="Goal" FontSize="12"/>
+        <Grid Name="ProfitGrid" Grid.Row="5" Grid.Column="0">
+            <spinner:SpinnerControl Name="Profits" ControlHeight="30" ControlWidth="65" Increment="1" MaxValue="100000" MinValue ="0" DefaultValue ="40" />
+        </Grid>
+        <Label Name="Simulation" Grid.Row="6" Grid.Column="0" Content="Simulations" FontSize="12"/>
+        <Grid Name="SimulationGrid" Grid.Row="7" Grid.Column="0">
+            <spinner:SpinnerControl Name="SimCount" ControlHeight="30" ControlWidth="65" Increment="1" MaxValue="100000" MinValue ="0" DefaultValue ="500" />
+        </Grid>
+        <Border BorderBrush="Green" BorderThickness="2" Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="2"/>
+        <Border BorderBrush="Red" BorderThickness="2" Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="2"/>
+        <Label Name="SimsWon" Grid.Row="0" Grid.Column="4" Content="Simulations Won: " FontSize="12"/>
+        <Label Name="SimsLost" Grid.Row="2" Grid.Column="4" Content="Simulations Lost: " FontSize="12"/>
+        <Label Name="SimulationsWon" Grid.Row="0" Grid.Column="5" Content="{Binding ControlWinCount, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" FontSize="12"/>
+        <Label Name="SimulationsLost" Grid.Row="2" Grid.Column="5" Content="{Binding ControlLoseCount, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" FontSize="12"/>
+        <Button Name="PlayTheGame" Grid.Row="0" Grid.Column="2" Grid.RowSpan="3" Content="Play Game" Click="ButtonOnClick"/>
+        <ProgressBar Name="progress" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="4" Value="{Binding NumPlayCount, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"/>
+    </Grid>
+</Window>
